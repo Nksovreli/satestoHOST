@@ -6,16 +6,12 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class Item(BaseModel):
-    title: str
-    timestamp: datetime
-    description: Union[str, None] = None
+
 
 
 @app.get('/')
 async def home():
-    data = {"id":1}
-    return response(content = data)
+    return {"data":"Hellow"}
 
 
 @app.get('/jobs')
