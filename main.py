@@ -4,8 +4,8 @@ app = FastAPI()
 
 
 @app.get('/')
-def home():
-    return {"MSG":"Home Page"}
+async def home():
+    return {"MSG":[{"id":1}]}
 
 
 @app.get('/jobs')
