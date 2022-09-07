@@ -1,7 +1,5 @@
-from fastapi import FastAPI,response
-from fastapi.encoders import jsonable_encoder
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from fastapi import FastAPI
+
 
 
 app = FastAPI()
