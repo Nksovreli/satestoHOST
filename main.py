@@ -21,6 +21,15 @@ app.add_middleware(
 my_jobs =[{"title": "FRONTEND Developer","content": "WebAP","id":1},
 {"title":"Python Developer","content":"FASTAPI","id":2}]
 
+
+
+def find_job(id):
+    for j in my_jobs:
+        if j["id"] == id:
+            return j
+
+
+
 @app.get("/")
 async def main():
     return {"message": "Hello World"}
@@ -30,3 +39,12 @@ async def main():
 @app.get("/jobs/designe")
 def get_job_list():
     return my_jobs
+
+
+
+@app.get("/jobs/{id}")
+def get_job_with_id(id):
+    job = find_job(int(id))
+    return job
+
+  
