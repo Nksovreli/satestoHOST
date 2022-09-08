@@ -27,6 +27,6 @@ async def main():
 
 
 
-@app.get("/jobs/")
+@app.get("/jobs/designe")
 def get_job_list():
     return my_jobs
