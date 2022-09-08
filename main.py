@@ -18,7 +18,15 @@ app.add_middleware(
     allow_headers=[""],
 )
 
+my_jobs =[{"title": "FRONTEND Developer","content": "WebAP","id":1},
+{"title":"Python Developer","content":"FASTAPI","id":2}]
 
 @app.get("/")
 async def main():
     return {"message": "Hello World"}
+
+
+
+@app.get("/jobs/")
+def get_job_list():
+    return my_jobs
