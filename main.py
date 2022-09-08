@@ -21,9 +21,11 @@ app.add_middleware(
 my_jobs =[{"title": "FRONTEND Developer","content": "WebAP","id":1},
 {"title":"Python Developer","content":"FASTAPI","id":2}]
 
-job_cat = [{"jobcategory":"Python","id":1},{"jobcategory":"Ruby","id":2}]
+job_cat = [{"jobcategory":"Python","id":1},{"jobcategory":"Ruby","id":2},
+{"jobcategory":"REACT","id":3}]
 
-
+card_list=[{"title":"python","id":1},{"title":"test","id":2},{"title":"test1","id":3},
+{"title":"test2","id":4},{"title":"test3","id":5},{"title":"test4","id":6}]
 
 def find_job(id):
     for j in my_jobs:
@@ -57,5 +59,9 @@ def get_job_with_id(id):
 def get_job_cat(id):
     job_cat = find_job_category(int(id))
     return job_cat
-    
+
+@app.get('/cat') 
+def show_all_cars():
+    return card_list   
+
   
