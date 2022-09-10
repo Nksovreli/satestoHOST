@@ -90,6 +90,15 @@ def add_job(job:schemas.JobCreate,db: Session = Depends(get_db)):
 
     return new_job
 
+@app.get("/vr/{id}")
+def get_id(id,db: Session = Depends(get_db)):
+    job = post = db.query(models.Post).filter(models.Post.id==id).first()
+    if not job:
+        if not post:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"post with id: {id} was not found")
+    return job
+
 
 
 
