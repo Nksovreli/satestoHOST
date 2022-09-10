@@ -19,7 +19,7 @@ origins = [
     "http://localhost/https:/fastapi-ipove.herokuapp.com/",
     "https://localhost.fastapi-ipove.herokuapp.com/",
     "http://localhost/",
-    "http://localhost:4200",
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
