@@ -81,7 +81,7 @@ def get_posts(db: Session = Depends(get_db)):
     posts = db.query(models.Post).all()
     return posts
 
-@app.post('/addjob',status_code=status.HTTP_201_CREATED,response_model=schemas.Post)
+@app.post('/addjob',status_code=status.HTTP_201_CREATED)
 def add_job(job:schemas.JobCreate,db: Session = Depends(get_db)):
     new_job = models.Post(**job.dict())
     db.add(new_job)
