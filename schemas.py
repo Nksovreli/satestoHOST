@@ -4,7 +4,7 @@ from datetime import datetime
 class JobCreate(BaseModel):
     title:str
     content:str 
-    published:bool
+    
 
 
 class Post(BaseModel):
