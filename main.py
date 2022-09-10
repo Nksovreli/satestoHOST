@@ -74,6 +74,13 @@ def get_job_cat(id):
 
 @app.get('/cat') 
 def show_all_cars():
-    return card_list   
+    return card_list  
+
+@app.get('/vr')
+def get_posts(db: Session = Depends(get_db)):
+    posts = db.query(models.Post).all()
+    return posts
+
+
 
   
