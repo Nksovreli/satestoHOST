@@ -4,6 +4,8 @@ from datetime import datetime
 class JobCreate(BaseModel):
     title:str
     content:str 
+    salary:int
+    emprequest:str
     
 
 
@@ -13,6 +15,10 @@ class Post(BaseModel):
     content:str
     published:bool
     created_at:datetime 
+    salary:int
+    emprequest:str
+
+
 
     class Config:
         orm_mode = True
