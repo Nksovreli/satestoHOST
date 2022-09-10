@@ -12,9 +12,7 @@ class JobCreate(BaseModel):
 class Post(BaseModel):
     id:int
     title:str
-    content:str
-    published:bool
-    created_at:datetime 
+    content:str 
     salary:int
     emprequest:str
 

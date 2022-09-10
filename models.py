@@ -15,3 +15,4 @@ class Post(Base):
                         server_default=text('now()'))
     salary = Column(Integer,nullable=False)
     emprequest = Column(String,nullable=False)
+    
