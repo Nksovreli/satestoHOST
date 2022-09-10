@@ -10,7 +10,7 @@ from psycopg2.extras import RealDictCursor
 import time
 from sqlalchemy.orm import Session
 from database import engine,get_db
-import models
+import models,schemas
 
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
@@ -19,7 +19,7 @@ origins = [
     "http://localhost/https:/fastapi-ipove.herokuapp.com/",
     "https://localhost.fastapi-ipove.herokuapp.com/",
     "http://localhost/",
-    "http://localhost:57663",
+    "http://localhost:3000",
 ]
 
 app.add_middleware(
@@ -80,6 +80,15 @@ def show_all_cars():
 def get_posts(db: Session = Depends(get_db)):
     posts = db.query(models.Post).all()
     return posts
+
+@app.post('/addjob',status_code=status.HTTP_201_CREATED,response_model=schemas.Post)
+def add_job(job:schemas.JobCreate,db: Session = Depends(get_db)):
+    new_job = models.Post(**job.dict())
+    db.add(new_job)
+    db.commit()
+    db.refresh(new_job)
+
+    return new_job
 
 
 
