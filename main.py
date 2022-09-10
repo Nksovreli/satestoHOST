@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI,Response,status,HTTPException,Depends
+from fastapi import FastAPI,Response,status,HTTPException,Depends,Request
 from fastapi.params import Body
 from pydantic import BaseModel
 from typing import Optional,List
@@ -19,7 +19,7 @@ origins = [
     "http://localhost/https:/fastapi-ipove.herokuapp.com/",
     "https://localhost.fastapi-ipove.herokuapp.com/",
     "http://localhost/",
-    "http://localhost:3000",
+    "http://localhost:4200",
 ]
 
 app.add_middleware(
