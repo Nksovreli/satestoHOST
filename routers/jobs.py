@@ -58,7 +58,7 @@ def update_post(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get
     if job == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'post with id: {id} does not exist')
-    job_query.update(updated_post.dict(),
+    job_query.update(updated_job.dict(),
     synchronize_session=False)        
     db.commit()                
 
