@@ -2,6 +2,7 @@ from pydantic import BaseModel,EmailStr
 from datetime import datetime
 
 class JobCreate(BaseModel):
+    id:int
     title:str
     content:str 
     salary:int

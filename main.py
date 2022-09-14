@@ -19,25 +19,20 @@ from routers import users, jobs
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
-origins = ["*"]
+origins = [
+    "http://localhost/https:/fastapi-ipove.herokuapp.com/",
+    "https://localhost.fastapi-ipove.herokuapp.com/",
+    "http://localhost/",
+    "http://localhost:3000",
+]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
+    allow_headers=["Accept","Accept-Language","Content-Language","Content-Type","Content"],
 )
-
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 
 # def find_job(id):
