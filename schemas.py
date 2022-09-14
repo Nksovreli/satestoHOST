@@ -25,3 +25,7 @@ class Post(BaseModel):
 
 class UpdateJob(JobCreate):
     pass
+
+class UserCreate(BaseModel):
+    email:EmailStr
+    password:str

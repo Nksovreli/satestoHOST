@@ -54,12 +54,13 @@ def update_job(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_
 
     job_query= db.query(models.Post).filter(models.Post.id == id)
     job = job_query.first()
+    print(updated_job)
 
     if job == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f'post with id: {id} does not exist')
-    job_query.update(updated_job.dict(),
-    synchronize_session=False)        
+    job_query.update(updated_job.dict(),synchronize_session=False)  
+    print(updated_job.dict())      
     db.commit()                
 
 
@@ -68,3 +69,4 @@ def update_job(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_
    
 
 
+ 
