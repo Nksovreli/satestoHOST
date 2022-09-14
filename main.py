@@ -12,7 +12,7 @@ from sqlalchemy.orm import Session
 from database import engine,get_db
 import models,schemas
 import routers
-from routers import users, jobs
+from routers import users, jobs,auth
 
 
 
@@ -102,3 +102,4 @@ app.add_middleware(
 
 app.include_router(jobs.router)
 app.include_router(users.router)
+app.include_router(auth.router)

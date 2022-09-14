@@ -69,4 +69,3 @@ def update_job(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_
    
 
 
- 
