@@ -50,10 +50,10 @@ def delete_post(id:int,db: Session = Depends(get_db)):
 
 
 @router.put('/{id}')
-def update_post(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_db)):
+def update_job(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_db)):
 
     job_query= db.query(models.Post).filter(models.Post.id == id)
-    job = post_query.first()
+    job = job_query.first()
 
     if job == None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
