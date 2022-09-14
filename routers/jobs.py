@@ -54,3 +54,6 @@ def update_post(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get
 
     post_query= db.query(models.Post).filter(models.Post.id == id)
     post = post_query.first()
+    db.commit()
+
+    
