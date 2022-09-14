@@ -47,3 +47,10 @@ def delete_post(id:int,db: Session = Depends(get_db)):
                             detail=f'post with id: {id} does not exist')
     job.delete(synchronize_session=False) 
     db.commit()
+
+
+@router.put('/{id}')
+def update_post(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_db)):
+
+    post_query= db.query(models.Post).filter(models.Post.id == id)
+    post = post_query.first()
