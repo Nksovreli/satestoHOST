@@ -64,7 +64,7 @@ def update_job(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_
 
 
    
-    return post_query.first()
+    return job_query.first()
    
 
 
