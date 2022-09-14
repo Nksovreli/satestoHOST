@@ -52,8 +52,19 @@ def delete_post(id:int,db: Session = Depends(get_db)):
 @router.put('/{id}')
 def update_post(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_db)):
 
-    post_query= db.query(models.Post).filter(models.Post.id == id)
-    post = post_query.first()
-    db.commit()
+    job_query= db.query(models.Post).filter(models.Post.id == id)
+    job = post_query.first()
 
-    
+    if job == None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f'post with id: {id} does not exist')
+    job_query.update(updated_post.dict(),
+    synchronize_session=False)        
+    db.commit()                
+
+
+   
+    return post_query.first()
+   
+
+
