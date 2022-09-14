@@ -22,5 +22,5 @@ class Post(BaseModel):
         orm_mode = True
 
 
-class UpdateJob(JobCreate):
+class UpdateJob(Post):
     pass
