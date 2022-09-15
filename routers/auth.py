@@ -8,7 +8,7 @@ router = APIRouter(tags=['Authentication'])
 
 
 
-@router.post('/login',response_model = schemas.Token)
+@router.post('/login')
 def login(user_credentials:OAuth2PasswordRequestForm = Depends(),
 db: Session = Depends(database.get_db)):
 
@@ -28,6 +28,6 @@ db: Session = Depends(database.get_db)):
 
     access_token = auth2.create_access_token(data={"user_id":user.id})
 
-    return {"access_token": access_token,"token_type":"bearer"}    
+    return {"access_token": access_token,"token_type":"bearer","user_id":user.id}    
 
 

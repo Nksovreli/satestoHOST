@@ -31,12 +31,9 @@ class UserCreate(BaseModel):
     password:str
 
 class Token(BaseModel):
-    id:int
     access_token:str 
     token_type:str  
 
-    class Config:
-        orm_mode = True
 
 class TokenData(BaseModel): 
     id:Optional[str] = None
