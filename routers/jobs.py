@@ -52,7 +52,8 @@ current_user: int = Depends(auth2.get_current_user)):
 
 
 @router.put('/{id}')
-def update_job(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_db)):
+def update_job(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_db),
+current_user: int = Depends(auth2.get_current_user)):
 
     job_query= db.query(models.Post).filter(models.Post.id == id)
     job = job_query.first()

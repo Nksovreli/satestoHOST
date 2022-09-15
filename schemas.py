@@ -11,6 +11,7 @@ class JobCreate(BaseModel):
     
 
 
+
 class Post(BaseModel):
     id:int
     title:str
@@ -29,8 +30,12 @@ class Post(BaseModel):
         orm_mode = True
 
 
-class UpdateJob(JobCreate):
-    pass
+class UpdateJob(BaseModel):
+    title:str
+    content:str
+    salary:int
+    emprequest:str
+    
 
 class UserCreate(BaseModel):
     email:EmailStr
