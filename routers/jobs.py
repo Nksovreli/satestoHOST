@@ -76,7 +76,7 @@ current_user: int = Depends(auth2.get_current_user)):
 
 @router.get("/person/{id}")
 def get_id(id:int,db: Session = Depends(get_db)):
-    job = db.query(models.Post).filter(models.Post.owner_id == id).first()
+    job = db.query(models.Post).filter(models.Post.owner_id == id).all()
     if not job:
         if not job:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
