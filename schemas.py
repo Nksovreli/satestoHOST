@@ -8,6 +8,8 @@ class JobCreate(BaseModel):
     salary:int
     emprequest:str
     owner_id:int
+    username:str
+
     
 
 
