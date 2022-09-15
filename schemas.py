@@ -3,7 +3,6 @@ from datetime import datetime
 from typing import Optional
 
 class JobCreate(BaseModel):
-    id:int
     title:str
     content:str 
     salary:int
