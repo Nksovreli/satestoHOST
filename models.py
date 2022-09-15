@@ -1,5 +1,5 @@
 from database import Base   
-from sqlalchemy import Column,Integer,String,Boolean,Date,DateTime
+from sqlalchemy import Column,Integer,String,Boolean,Date,DateTime,ForeignKey
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
 
@@ -15,6 +15,8 @@ class Post(Base):
                         server_default=text('now()'))
     salary = Column(Integer,nullable=False)
     emprequest = Column(String,nullable=False)
+
+    owener_id= Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False)
 
 
 class User(Base):
