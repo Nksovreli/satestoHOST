@@ -17,6 +17,7 @@ class Post(Base):
     emprequest = Column(String,nullable=False)
 
     owner_id= Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False)
+    username = Column(String,nullable=False)
 
 
 class User(Base):

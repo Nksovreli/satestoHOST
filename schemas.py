@@ -19,6 +19,8 @@ class Post(BaseModel):
     salary:int
     emprequest:str
     created_at:datetime
+    username:str
+
     
 
 
@@ -35,7 +37,7 @@ class UpdateJob(BaseModel):
     content:str
     salary:int
     emprequest:str
-    
+
 
 class UserCreate(BaseModel):
     email:EmailStr
@@ -66,6 +68,7 @@ class JobResponse(BaseModel):
     emprequest:str
     created_at:datetime
     owner_id:int
+    username:str
     
     class Config:
         orm_mode = True
