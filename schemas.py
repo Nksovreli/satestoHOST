@@ -17,7 +17,7 @@ class Post(BaseModel):
     salary:int
     emprequest:str
     created_at:datetime
-    owner_id:int
+    
 
 
 
@@ -52,3 +52,14 @@ class UserOut(BaseModel):
         orm_mode = True   
 
 
+class JobResponse(BaseModel):
+    id:int
+    title:str
+    content:str 
+    salary:int
+    emprequest:str
+    created_at:datetime
+    owner_id:int
+    
+    class Config:
+        orm_mode = True

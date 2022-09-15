@@ -12,7 +12,7 @@ router = APIRouter(
 
 
 
-@router.get('/',response_model=List[schemas.Post])
+@router.get('/')
 def get_posts(db: Session = Depends(get_db)):
     posts = db.query(models.Post).all()
     return posts
