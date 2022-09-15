@@ -40,7 +40,8 @@ def get_id(id,db: Session = Depends(get_db)):
 
 
 @router.delete('/{id}',status_code=status.HTTP_204_NO_CONTENT)
-def delete_post(id:int,db: Session = Depends(get_db)):
+def delete_post(id:int,db: Session = Depends(get_db),
+current_user: int = Depends(auth2.get_current_user)):
     job = db.query(models.Post).filter(models.Post.id==id)
    
     if job.first() == None:
@@ -67,6 +68,8 @@ def update_job(id: int,updated_job: schemas.UpdateJob,db: Session = Depends(get_
 
    
     return job_query.first()
+
    
+
 
 
