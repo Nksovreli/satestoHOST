@@ -20,7 +20,7 @@ def get_posts(db: Session = Depends(get_db)):
 
 @router.post('/add',status_code=status.HTTP_201_CREATED,response_model=schemas.Post)
 def add_job(job:schemas.JobCreate,db: Session = Depends(get_db),
-user_id: int = Depends(auth2.get_current_user)):
+current_user: int = Depends(auth2.get_current_user)):
     new_job = models.Post(**job.dict())
     db.add(new_job)
     db.commit()

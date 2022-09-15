@@ -20,7 +20,8 @@ def get_users(db: Session = Depends(get_db)):
 
 
 
-@router.post('/create',status_code=status.HTTP_201_CREATED)
+@router.post('/create',status_code=status.HTTP_201_CREATED,
+response_model = schemas.UserOut)
 def create_user(user:schemas.UserCreate,db: Session = Depends(get_db)):
 
     hashed_password =utils.hash(user.password)
