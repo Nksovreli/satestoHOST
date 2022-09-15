@@ -16,7 +16,7 @@ class Post(Base):
     salary = Column(Integer,nullable=False)
     emprequest = Column(String,nullable=False)
 
-    owener_id= Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False)
+    owner_id= Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False)
 
 
 class User(Base):
