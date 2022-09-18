@@ -10,7 +10,7 @@ class JobCreate(BaseModel):
     owner_id:int
     username:str
     category_id:int 
-    
+
 
     
 
@@ -24,6 +24,7 @@ class Post(BaseModel):
     emprequest:str
     created_at:datetime
     username:str
+    category_id:int
 
     
 
