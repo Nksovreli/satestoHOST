@@ -101,13 +101,14 @@ def get_id(id:int,db: Session = Depends(get_db)):
 
 @router.get('/category/{id}')
 def get_category(id:int,db: Session = Depends(get_db)):
-    if id:
-        job_1 = db.query(models.Post).filter(models.Post.category_id == id).all()
-    return job_1
+    job= db.query(models.Post).filter(models.Post.category_id == id).all()
+    
+    if not job:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
 
-    # if id ==2:
-    #     job_2 = db.query(models.Post).filter(models.Post.category_id == id).all()
-    #     return job_2
+    return job    
+
+
 
 
 
