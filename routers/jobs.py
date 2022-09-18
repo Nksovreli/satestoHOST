@@ -22,7 +22,6 @@ def search(query: Optional[str] = None,db: Session = Depends(get_db)):
    
    
    
-   
 
 
 @router.get('/')

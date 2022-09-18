@@ -18,6 +18,7 @@ class Post(Base):
 
     owner_id= Column(Integer,ForeignKey("users.id",ondelete="CASCADE"),nullable=False)
     username = Column(String,nullable=False)
+    category_id = Column(Integer, nullable=False)
 
 
 class User(Base):

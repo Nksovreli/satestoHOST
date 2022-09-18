@@ -9,6 +9,8 @@ class JobCreate(BaseModel):
     emprequest:str
     owner_id:int
     username:str
+    category_id:int 
+    
 
     
 
@@ -76,12 +78,12 @@ class JobResponse(BaseModel):
         orm_mode = True
 
 
-class JobSearch(BaseModel):
-    title:str
-    content:str
-    salary:int
-    emprequest:str
-    created_at:datetime
+# class JobSearch(BaseModel):
+#     title:str
+#     content:str
+#     salary:int
+#     emprequest:str
+#     created_at:datetime
 
-    class Config:
-        orm_mode = True
+#     class Config:
+#         orm_mode = True
