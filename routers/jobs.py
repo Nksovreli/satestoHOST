@@ -97,10 +97,17 @@ def get_id(id:int,db: Session = Depends(get_db)):
 
 
 
-# @router.get('/search')
-# def search_job(text:Optional[str],db: Session = Depends(get_db)):
-#     jobsearch = db.query(models.Post).filter(Post.title.contains(text)).all()
-#     return {"jobs":jobsearch}
 
 
-   
+@router.get('/category/{id}')
+def get_category(id:int,db: Session = Depends(get_db)):
+    if id:
+        job_1 = db.query(models.Post).filter(models.Post.category_id == id).all()
+    return job_1
+
+    # if id ==2:
+    #     job_2 = db.query(models.Post).filter(models.Post.category_id == id).all()
+    #     return job_2
+
+
+
