@@ -74,3 +74,14 @@ class JobResponse(BaseModel):
     
     class Config:
         orm_mode = True
+
+
+class JobSearch(BaseModel):
+    title:str
+    content:str
+    salary:int
+    emprequest:str
+    created_at:datetime
+
+    class Config:
+        orm_mode = True
