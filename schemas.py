@@ -47,6 +47,10 @@ class UpdateJob(BaseModel):
 class UserCreate(BaseModel):
     email:EmailStr
     password:str
+    name:str  
+    last_name:str
+    number:str
+
 
 class Token(BaseModel):
     access_token:str 
@@ -60,6 +64,9 @@ class UserOut(BaseModel):
     id: int
     email: EmailStr
     created_at:datetime 
+    name:str  
+    last_name:str
+    number:str
 
     class Config:
         orm_mode = True   
